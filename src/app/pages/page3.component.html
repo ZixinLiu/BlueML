@@ -17,42 +17,17 @@
     </div>
 
 
+
+
     <h1>Select Features for Classification</h1>
     <span class="glyphicon glyphicon-question-sign pull-right" data-toggle="tooltip" title="Please select features for classification"></span>
     <br/>
-    <div class="containerCheck">
-        <form>
-            <label class="checkbox-inline"><input type="checkbox" value=""> QRS Interval </label>
-            <label class="checkbox-inline"><input type="checkbox" value=""> S Amplitude </label>
-        </form>
-    </div>
-
-    <div class="containerCheck">
-        <form>
-            <label class="checkbox-inline"><input type="checkbox" value=""> PR Interval </label>
-            <label class="checkbox-inline"><input type="checkbox" value=""> T Amplitude </label>
-        </form>
-    </div>
-
-    <div class="containerCheck">
-        <form>
-            <label class="checkbox-inline"><input type="checkbox" value=""> QT Interval </label>
-            <label class="checkbox-inline"><input type="checkbox" value=""> Q Amplitude </label>
-        </form>
-    </div>
-
-    <div class="containerCheck">
-        <form>
-            <label class="checkbox-inline"><input type="checkbox" value=""> T Interval </label>
-            <label class="checkbox-inline"><input type="checkbox" value=""> P Amplitude </label>
-        </form>
-    </div>
-
-    <div class="containerCheck">
-        <form>
-            <label class="checkbox-inline"><input type="checkbox" value=""> P Interval</label>
-            <label class="checkbox-inline"><input type="checkbox" value=""> R Amplitude </label>
-        </form>
+    <div>
+        <div style="width: 500px; height: 200px; margin: auto">
+            <label *ngFor= "let featureName of featuresArray" class="checkbox-inline">
+                <input type="checkbox" [value]="featureName" [checked] ="selection.indexOf(featureName) > -1" (change) = "toggleSelection(featureName)"> {{featureName}}
+            </label>
+        </div>
     </div>
 
 </div>

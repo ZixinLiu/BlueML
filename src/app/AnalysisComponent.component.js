@@ -18,7 +18,20 @@ var core_1 = require('@angular/core');
 var AnalysisComponent = (function () {
     function AnalysisComponent() {
         this.title = 'Analysis Page';
+        this.featuresArray = ['QRS Interval', 'S Amplitude', 'PR Interval', 'T Amplitude', 'QT Interval', 'Q Amplitude', 'T Interval', 'P Amplitude', 'P Interval', 'R Amplitude'];
+        this.idx = -1;
     }
+    AnalysisComponent.prototype.toggleSelection = function (featureName) {
+        this.idx = this.selection.indexOf(featureName);
+        // is currently selected
+        if (this.idx > -1) {
+            this.selection.splice(this.idx, 1);
+        }
+        else {
+            this.selection.push(featureName);
+        }
+    };
+    ;
     AnalysisComponent = __decorate([
         core_1.Component({
             selector: 'relative-path',
